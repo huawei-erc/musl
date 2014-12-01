@@ -32,6 +32,14 @@ long double exp2l(long double x)
 {
 	return exp2(x);
 }
+
+#elif LDBL_MANT_DIG == 113 && LDBL_MAX_EXP == 16384
+long double exp2l(long double x)
+{
+#warning "exp2l implementation for ld128 is horribly imprecise. Implement for real!"
+	return exp2(x);
+}
+
 #elif LDBL_MANT_DIG == 64 && LDBL_MAX_EXP == 16384
 
 #define TBLBITS 7

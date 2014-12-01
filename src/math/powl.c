@@ -74,6 +74,14 @@ long double powl(long double x, long double y)
 {
 	return pow(x, y);
 }
+
+#elif LDBL_MANT_DIG == 113 && LDBL_MAX_EXP == 16384
+long double powl(long double x, long double y)
+{
+#warning "powl implementation for ld128 is horribly imprecise. Implement for real!"
+	return pow(x, y);
+}
+
 #elif LDBL_MANT_DIG == 64 && LDBL_MAX_EXP == 16384
 
 /* Table size */

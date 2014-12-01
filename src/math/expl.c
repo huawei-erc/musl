@@ -72,6 +72,12 @@ long double expl(long double x)
 {
 	return exp(x);
 }
+#elif LDBL_MANT_DIG == 113 && LDBL_MAX_EXP == 16384
+long double expl(long double x)
+{
+#warning "expl implementation for ld128 is horribly imprecise. Implement for real!"
+	return exp(x);
+}
 #elif LDBL_MANT_DIG == 64 && LDBL_MAX_EXP == 16384
 
 static const long double P[3] = {
